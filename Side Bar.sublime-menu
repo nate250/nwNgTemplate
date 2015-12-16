@@ -1,0 +1,13 @@
+[
+{
+	"id": "nwNewAngular",
+	"caption" : "New Angular",
+	"children" : [
+		{
+			"caption": "Directive",
+			"command": "nw_new_angular_directive",
+			"args": { "paths": [] }
+		}
+	]
+}
+]
