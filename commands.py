@@ -46,10 +46,14 @@ class NwNewAngularDirectiveCommand(sublime_plugin.WindowCommand):
 		self.create_folder(path)
 		fullpath = os.path.join(path, filename)
 		self.create_module_files(path, self.lookup_module(path))
-		self.create_file(fullpath + ".js", self.get_directive_content(module,directive))
-		self.create_file(fullpath + ".spec.js", self.get_directive_spec_content(module,directive))
-		self.create_file(fullpath + ".scss")
-		self.create_file(fullpath + ".html")
+		self.create_and_open_file(fullpath + ".js", self.get_directive_content(module,directive))
+		self.create_and_open_file(fullpath + ".spec.js", self.get_directive_spec_content(module,directive))
+		self.create_and_open_file(fullpath + ".scss")
+		self.create_and_open_file(fullpath + ".html")
+
+	def create_and_open_file(self, filepath, content=""):
+		self.create_file(filepath, content)
+		self.window.open_file(filepath)
 
 	def create_file(self, filepath, content = ""):
 		if not os.path.exists(filepath):
