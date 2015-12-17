@@ -7,13 +7,16 @@ class NwNewAngularDirectiveCommand(sublime_plugin.WindowCommand):
 		self.open_folder = self.get_open_folder()
 		self.load_aliases()
 
-	def run(self, paths):
+	def run(self, paths=None):
+		if paths is None:
+			paths = [self.window.active_view().file_name()]
 		if len(paths) != 1:
 			return
 		if os.path.isdir(paths[0]):
 			self.path = paths[0]
 		else:
 			self.path = os.path.dirname(paths[0])
+
 		
 		self.view = self.window.active_view()
 		self.open_folder = self.window.folders()[0]

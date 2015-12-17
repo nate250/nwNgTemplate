@@ -1,0 +1,6 @@
+[
+	{
+		"keys": ["ctrl+shift+g", "d"],
+		"command": "nw_new_angular_directive"
+	}
+]
