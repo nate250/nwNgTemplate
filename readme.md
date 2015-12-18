@@ -7,6 +7,9 @@ Adds support to Sublime for generating files for new Angular components. It will
 * Directive templates
 * Directive stylesheets
 
+Exposes the ctrl+shift+g keybinding with the following additional sequences:
+* d - For making new directives
+
 Requires a sublime-project file containing the following:
 
     "nw_ng_templates": {
