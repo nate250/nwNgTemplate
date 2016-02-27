@@ -109,6 +109,7 @@ class NwNewAngularDirectiveCommand(sublime_plugin.WindowCommand):
 		aliases = {}
 		self.aliases = {}
 		self.aliases_by_module = {}
+		print(self.window.project_data())
 		for directory, module in self.window.project_data()["nw_ng_templates"]["module_aliases"].items():
 			aliases[os.path.normpath(os.path.join(self.open_folder, directory))] = module
 		alias_keys = sorted(aliases, key=lambda key: len(key))
@@ -146,10 +147,9 @@ class NwNewAngularDirectiveCommand(sublime_plugin.WindowCommand):
   function directive() {{
     return {{
       restrict: 'E',
-      replace: true,
       bindToController: true,
-      controllerAs: 'directive',
-      controller: Controller
+      controllerAs: '{directive}',
+      controller: Controller,
     }};
   }}
 
